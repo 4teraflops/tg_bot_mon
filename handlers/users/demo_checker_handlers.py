@@ -44,8 +44,10 @@ async def start_demo_checker(call: CallbackQuery, state: FSMContext):
         # Убираем клавиатуру
         await bot.edit_message_reply_markup(chat_id=call.from_user.id, message_id=call.message.message_id, reply_markup='')
         # Сообщаем, чтоб ждал
-        await bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text='Автотест запущен\nОжидайте около минуты')
-        # Когда функция автотеста отработала, возвращаем ее вывод и клавиатуру
+        await bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text='Автотест запущен\n')
+        # Когда функции автотеста отработали возвращаем их вывод и клавиатуру
+        #await bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=demo_checker_app.autotest_anonimus_pay())
+        #await bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=demo_checker_app.autotest_anonimus_pay())
         await bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=demo_checker_app.main())
         await bot.edit_message_reply_markup(chat_id=call.from_user.id, message_id=call.message.message_id, reply_markup=demo_checker_menu)
 
