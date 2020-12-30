@@ -173,7 +173,7 @@ async def postmon_manage(call: CallbackQuery, state: FSMContext):
         else:
             await call.message.answer(f'Ты не админ. Иди отсюда.')
             logger.info(
-                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | nemu: {button_callback}')
+                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | menu: {button_callback}')
     elif button_callback == 'start':
         if user_id == admin_id:
             _system_command('service postmon start')
@@ -183,7 +183,7 @@ async def postmon_manage(call: CallbackQuery, state: FSMContext):
         else:
             await call.message.answer('Ты не админ. Иди отсюда.')
             logger.info(
-                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | nemu: {button_callback}')
+                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | menu: {button_callback}')
     elif button_callback == 'stop':
         if user_id == admin_id:
             _system_command('service postmon stop')
@@ -192,7 +192,7 @@ async def postmon_manage(call: CallbackQuery, state: FSMContext):
                                      call.from_user.username, call.data.split(':')[1])  # В анализ
         else:
             logger.info(
-                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | nemu: {button_callback}')
+                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | menu: {button_callback}')
             await call.message.answer('Ты не админ. Иди отсюда.')
     elif button_callback == 'restart':
         if user_id == admin_id:
@@ -201,7 +201,7 @@ async def postmon_manage(call: CallbackQuery, state: FSMContext):
             insert_in_analysis_table(call.from_user.id, call.from_user.first_name, call.from_user.last_name,
                                      call.from_user.username, call.data.split(':')[1])  # В анализ
         else:
-            logger.info(f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | nemu: {button_callback}')
+            logger.info(f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | menu: {button_callback}')
             await call.message.answer('Ты не админ. Иди отсюда.')
 
 
@@ -229,25 +229,25 @@ async def acqpc_manage(call: CallbackQuery, state: FSMContext):
         else:
             await call.message.answer('Ты не админ. Иди отсюда.')
             logger.info(
-                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | nemu: {button_callback}')
+                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | menu: {button_callback}')
     elif button_callback == 'start':
         if user_id == admin_id:
             _system_command('service acqpc_mon start')
         else:
             await call.message.answer('Ты не админ. Иди отсюда.')
             logger.info(
-                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | nemu: {button_callback}')
+                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | menu: {button_callback}')
     elif button_callback == 'stop':
         if user_id == admin_id:
             _system_command('service acqpc_mon stop')
         else:
             await call.message.answer('Ты не админ. Иди отсюда.')
             logger.info(
-                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | nemu: {button_callback}')
+                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | menu: {button_callback}')
     elif button_callback == 'restart':
         if user_id == admin_id:
             _system_command('service acqpc_mon restart')
         else:
             await call.message.answer('Ты не админ. Иди отсюда.')
             logger.info(
-                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | nemu: {button_callback}')
+                f'{call.from_user.id} | {call.from_user.first_name} | {call.from_user.last_name} | {call.from_user.username} | Button: {call.data.split(":")[1]} | menu: {button_callback}')

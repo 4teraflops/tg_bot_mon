@@ -6,7 +6,7 @@ from keyboards.inline.callback_datas import menu_callbacks
 from keyboards.inline.choice_buttons import start_menu, demo_checker_menu
 from loader import dp, bot
 from states.states import Start, DemoChecker
-from extentions.demo_checker import app as demo_checker_app
+from extentions.demo_checker import demo_checker as demo_checker_app
 from loguru import logger
 from src.analyzer import insert_in_analysis_table
 
@@ -44,12 +44,12 @@ async def start_demo_checker(call: CallbackQuery, state: FSMContext):
         # Убираем клавиатуру
         await bot.edit_message_reply_markup(chat_id=call.from_user.id, message_id=call.message.message_id, reply_markup='')
         # Сообщаем, чтоб ждал
-        await bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text='Автотест запущен\n')
+        await bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text='Start testing...\n')
         # Когда функции автотеста отработали возвращаем их вывод и клавиатуру
-        #await bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=demo_checker_app.autotest_anonimus_pay())
-        #await bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=demo_checker_app.autotest_anonimus_pay())
-        await bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=demo_checker_app.main())
-        await bot.edit_message_reply_markup(chat_id=call.from_user.id, message_id=call.message.message_id, reply_markup=demo_checker_menu)
+        await call.message.answer(text=demo_checker_app.autotest_anonimus_pay())
+        await call.message.answer(text=demo_checker_app.autotest_rekurrent_pay())
+        await call.message.answer(text=demo_checker_app.autotest_fiscal_cash_pay())
+        await call.message.answer(text='End testing', reply_markup=demo_checker_menu)
 
         insert_in_analysis_table(call.from_user.id, call.from_user.first_name, call.from_user.last_name,
                                  call.from_user.username, call.data.split(':')[1])  # В анализ
